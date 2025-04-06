@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Download the best mobile FPS game for an ultimate multiplayer experience!">
     <title>Best FPS Game - Ultimate Multiplayer Experience</title>
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
             --burnt-orange: #CC5500;
@@ -99,212 +101,201 @@
             opacity: 0.9;
         }
 
-        /* Enhanced CTA Button */
+        /* Redesigned Download Button (No Emoji) */
         .download-btn {
-            padding: 16px 40px;
-            font-size: 1.2rem;
-            background: linear-gradient(135deg, var(--burnt-orange), var(--deep-orange));
-            border: 2px solid var(--deep-orange);
-            border-radius: 50px;
+            padding: 18px 50px;
+            font-size: 1.4rem;
+            background: linear-gradient(45deg, var(--burnt-orange), var(--deep-orange));
+            border: none;
+            border-radius: 10px;
             color: var(--off-white);
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: var(--shadow), inset 0 0 10px rgba(255, 140, 0, 0.3);
+            box-shadow: var(--shadow), 0 0 20px var(--deep-orange);
             position: relative;
             text-decoration: none;
             font-weight: bold;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             display: inline-block;
             overflow: hidden;
-        }
-
-        .download-btn:hover {
-            transform: scale(1.1) translateY(-8px);
-            box-shadow: 0 0 30px var(--deep-orange), inset 0 0 15px rgba(255, 140, 0, 0.5);
-            background: linear-gradient(135deg, var(--deep-orange), var(--burnt-orange));
-            border-color: var(--burnt-orange);
+            animation: pulseGlow 2s infinite;
         }
 
         .download-btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: all 0.6s ease;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg);
+            transition: all 0.8s ease;
         }
 
         .download-btn:hover::before {
             left: 100%;
         }
 
-        /* FAQ Section */
-        .faq {
-            padding: 50px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            position: relative;
+        .download-btn:hover {
+            transform: scale(1.15) translateY(-10px);
+            box-shadow: 0 0 40px var(--deep-orange), 0 0 60px var(--burnt-orange);
+            background: linear-gradient(45deg, var(--deep-orange), var(--burnt-orange));
         }
 
-        .faq::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 50%;
-            height: 3px;
-            background: var(--deep-orange);
-            transform: translateX(-50%);
-            border-radius: 0 0 5px 5px;
-        }
-
-        .faq h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--deep-orange);
-            font-size: 2.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
-        }
-
-        .accordion-item {
-            margin-bottom: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: var(--transition);
-            border: 1px solid rgba(204, 85, 0, 0.2);
-        }
-
-        .accordion-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: var(--deep-orange);
-        }
-
-        .accordion-header {
-            padding: 18px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--off-white);
-            transition: color 0.3s ease;
-        }
-
-        .accordion-header:hover {
-            color: var(--deep-orange);
-        }
-
-        .accordion-content {
-            max-height: 0;
-            padding: 0 18px;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            font-size: 1rem;
-            opacity: 0.9;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .accordion-content.active {
-            max-height: 300px;
-            padding: 18px;
-        }
-
-        .chevron {
-            transition: transform 0.4s ease;
-            font-size: 1.3rem;
-            color: var(--deep-orange);
-        }
-
-        .chevron.active {
-            transform: rotate(180deg);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 50px 20px;
-            background: linear-gradient(180deg, rgba(255, 140, 0, 0.15), var(--charcoal-black));
-        }
-
-        .features h2 {
-            text-align: center;
-            margin-bottom: 35px;
-            color: var(--deep-orange);
-            font-size: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
+        /* Unified Section Design (FAQ & Features) */
+        .section {
+            padding: 60px 20px;
             max-width: 1000px;
             margin: 0 auto;
-        }
-
-        .feature-card {
-            padding: 20px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            transition: var(--transition);
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.05), rgba(26, 26, 26, 0.95));
+            border-radius: 20px;
+            box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
         }
 
-        .feature-card::before {
+        .section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: var(--deep-orange);
+            height: 5px;
+            background: linear-gradient(to right, var(--burnt-orange), var(--deep-orange));
             transform: scaleX(0);
             transform-origin: left;
-            transition: transform 0.4s ease;
+            transition: transform 0.6s ease;
         }
 
-        .feature-card:hover::before {
+        .section:hover::before {
             transform: scaleX(1);
         }
 
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow);
-            background: rgba(255, 255, 255, 0.12);
+        .section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--deep-orange);
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+            position: relative;
         }
 
-        .feature-card i {
-            font-size: 2rem;
-            color: var(--burnt-orange);
-            margin-bottom: 12px;
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 50px;
+            height: 2px;
+            background: var(--burnt-orange);
+            transform: translateX(-50%);
+        }
+
+        /* FAQ Section */
+        .faq .accordion-item {
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            overflow: hidden;
             transition: var(--transition);
+            border: 1px solid rgba(204, 85, 0, 0.3);
         }
 
-        .feature-card:hover i {
-            transform: scale(1.15) rotate(5deg);
+        .faq .accordion-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--deep-orange);
+            transform: translateY(-5px);
+        }
+
+        .faq .accordion-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--off-white);
+            transition: color 0.3s ease;
+        }
+
+        .faq .accordion-header:hover {
             color: var(--deep-orange);
         }
 
-        .feature-card h3 {
-            font-size: 1.3rem;
+        .faq .accordion-content {
+            max-height: 0;
+            padding: 0 20px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .faq .accordion-content.active {
+            max-height: 300px;
+            padding: 20px;
+        }
+
+        .faq .chevron {
+            transition: transform 0.4s ease;
+            font-size: 1.4rem;
+            color: var(--deep-orange);
+        }
+
+        .faq .chevron.active {
+            transform: rotate(180deg);
+        }
+
+        /* Features Section */
+        .features .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .features .feature-card {
+            padding: 25px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            transition: var(--transition);
+            border: 1px solid rgba(204, 85, 0, 0.3);
+            position: relative;
+        }
+
+        .features .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--deep-orange);
+        }
+
+        .features .feature-card i {
+            font-size: 2.5rem;
+            color: var(--burnt-orange);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .features .feature-card:hover i {
+            transform: scale(1.2);
+            color: var(--deep-orange);
+        }
+
+        .features .feature-card h3 {
+            font-size: 1.4rem;
             margin-bottom: 10px;
             color: var(--off-white);
         }
 
-        .feature-card p {
-            font-size: 1rem;
+        .features .feature-card p {
+            font-size: 1.1rem;
             opacity: 0.85;
         }
 
@@ -328,16 +319,10 @@
             50% { transform: translateY(-10px); }
         }
 
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(3deg); }
-            75% { transform: rotate(-3deg); }
-        }
-
         @keyframes pulseGlow {
-            0% { box-shadow: 0 0 15px var(--deep-orange); }
-            50% { box-shadow: 0 0 30px var(--burnt-orange); }
-            100% { box-shadow: 0 0 15px var(--deep-orange); }
+            0% { box-shadow: 0 0 20px var(--deep-orange); }
+            50% { box-shadow: 0 0 40px var(--burnt-orange); }
+            100% { box-shadow: 0 0 20px var(--deep-orange); }
         }
 
         /* Responsive Design */
@@ -345,22 +330,22 @@
             .hero h1 { font-size: 4rem; }
             .hero p { font-size: 1.6rem; }
             .hero img { width: 180px; }
-            .download-btn { padding: 18px 50px; font-size: 1.3rem; }
-            .faq { padding: 70px 30px; }
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-            .feature-card { padding: 25px; }
-            .faq h2, .features h2 { font-size: 2.2rem; }
+            .download-btn { padding: 20px 60px; font-size: 1.5rem; }
+            .section { padding: 80px 30px; }
+            .features .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .features .feature-card { padding: 30px; }
+            .section h2 { font-size: 2.5rem; }
         }
 
         @media (max-width: 480px) {
             .hero h1 { font-size: 2.2rem; }
             .hero p { font-size: 1.1rem; }
             .hero img { width: 120px; }
-            .download-btn { padding: 12px 30px; font-size: 1rem; }
-            .faq { padding: 40px 15px; }
-            .faq h2, .features h2 { font-size: 1.8rem; }
-            .features { padding: 40px 15px; }
-            .marquee { font-size: 12px; padding: 8px; }
+            .download-btn { padding: 14px 40px; font-size: 1.2rem; }
+            .section { padding: 40px 15px; }
+            .section h2 { font-size: 1.8rem; }
+            .faq .accordion-header { font-size: 1.1rem; }
+            .features .feature-card i { font-size: 2rem; }
         }
     </style>
 </head>
@@ -381,11 +366,11 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq">
+    <section class="section faq">
         <h2>FAQ</h2>
         <div class="accordion-item">
             <div class="accordion-header">What happens after clicking "Download Now"? <span class="chevron">▼</span></div>
-            <div class="accordion-content">You'll be redirected to a verification page to unlock the download link.</div>
+            <div class="accordion-content">You'll be redirected to a verification page to unlock the download link securely.</div>
         </div>
         <div class="accordion-item">
             <div class="accordion-header">What are verification challenges? <span class="chevron">▼</span></div>
@@ -393,7 +378,7 @@
         </div>
         <div class="accordion-item">
             <div class="accordion-header">Is the game free? <span class="chevron">▼</span></div>
-            <div class="accordion-content">Yes, completely free to download.</div>
+            <div class="accordion-content">Yes, completely free to download with optional in-game purchases for extras.</div>
         </div>
         <div class="accordion-item">
             <div class="accordion-header">What devices are supported? <span class="chevron">▼</span></div>
@@ -401,27 +386,27 @@
         </div>
     </section>
 
-    <!-- Features Section with New Icons -->
-    <section class="features">
+    <!-- Features Section with Font Awesome Icons -->
+    <section class="section features">
         <h2>Game Features</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <i>💥</i>
+                <i class="fas fa-explosion"></i>
                 <h3>Intense Battles</h3>
                 <p>Engage in heart-pounding multiplayer combat with real players worldwide.</p>
             </div>
             <div class="feature-card">
-                <i>🎯</i>
+                <i class="fas fa-crosshairs"></i>
                 <h3>Precision Shooting</h3>
                 <p>Master your aim with smooth, responsive controls optimized for mobile.</p>
             </div>
             <div class="feature-card">
-                <i>🌌</i>
+                <i class="fas fa-eye"></i>
                 <h3>Stunning Graphics</h3>
                 <p>Immerse yourself in breathtaking visuals and dynamic environments.</p>
             </div>
             <div class="feature-card">
-                <i>⚔️</i>
+                <i class="fas fa-user-group"></i>
                 <h3>Team Play</h3>
                 <p>Coordinate with friends for epic victories and strategic gameplay.</p>
             </div>
@@ -479,7 +464,7 @@
             });
         }, { threshold: 0.2 });
 
-        document.querySelectorAll('.faq, .features, .feature-card').forEach(el => {
+        document.querySelectorAll('.section, .feature-card').forEach(el => {
             el.style.opacity = '0';
             observer.observe(el);
         });
