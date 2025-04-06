@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download the best mobile FPS game for an ultimate multiplayer experience!">
     <title>Best FPS Game - Ultimate Multiplayer Experience</title>
     <style>
         :root {
@@ -10,7 +11,8 @@
             --deep-orange: #FF8C00;
             --charcoal-black: #1A1A1A;
             --off-white: #F5F5F5;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            --shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            --transition: all 0.4s ease;
         }
 
         * {
@@ -18,6 +20,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -25,18 +28,25 @@
             color: var(--off-white);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
         }
 
         .marquee {
             background: var(--burnt-orange);
-            padding: 8px;
+            padding: 10px;
             text-align: center;
-            font-size: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: var(--shadow);
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -44,6 +54,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            background: radial-gradient(circle at center, rgba(204, 85, 0, 0.1), var(--charcoal-black));
         }
 
         #particles-js {
@@ -53,118 +64,165 @@
             width: 100%;
             height: 100%;
             z-index: 1;
+            filter: blur(1px);
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            padding: 20px;
+            padding: 15px;
+            margin-top: -5px;
         }
 
         .hero img {
-            width: 120px;
-            margin-bottom: 15px;
-            animation: fadeInUp 1s ease-out;
+            width: 150px;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease-out, float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px var(--deep-orange));
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             background: linear-gradient(45deg, var(--burnt-orange), var(--deep-orange));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             animation: fadeInUp 1.2s ease-out;
+            text-shadow: 2px 2px 10px rgba(204, 85, 0, 0.5);
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
             animation: fadeInUp 1.4s ease-out;
+            opacity: 0.9;
         }
 
+        /* Enhanced CTA Button */
         .download-btn {
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            background: linear-gradient(45deg, var(--burnt-orange), var(--deep-orange));
-            border: none;
-            border-radius: 25px;
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--burnt-orange), var(--deep-orange));
+            border: 2px solid var(--deep-orange);
+            border-radius: 50px;
             color: var(--off-white);
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
+            transition: var(--transition);
+            box-shadow: var(--shadow), inset 0 0 10px rgba(255, 140, 0, 0.3);
             position: relative;
-            overflow: hidden;
-            display: inline-block;
             text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: inline-block;
+            overflow: hidden;
         }
 
         .download-btn:hover {
-            transform: scale(1.05) translateY(-5px);
-            animation: wiggle 0.5s infinite, pulseGlow 1.5s infinite;
+            transform: scale(1.1) translateY(-8px);
+            box-shadow: 0 0 30px var(--deep-orange), inset 0 0 15px rgba(255, 140, 0, 0.5);
+            background: linear-gradient(135deg, var(--deep-orange), var(--burnt-orange));
+            border-color: var(--burnt-orange);
         }
 
-        .download-btn::after {
+        .download-btn::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(30deg);
-            transition: all 0.5s;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.6s ease;
         }
 
-        .download-btn:hover::after {
+        .download-btn:hover::before {
             left: 100%;
         }
 
         /* FAQ Section */
         .faq {
-            padding: 40px 15px;
-            max-width: 100%;
+            padding: 50px 20px;
+            max-width: 900px;
             margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .faq::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 3px;
+            background: var(--deep-orange);
+            transform: translateX(-50%);
+            border-radius: 0 0 5px 5px;
         }
 
         .faq h2 {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             color: var(--deep-orange);
-            font-size: 1.8rem;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
         }
 
         .accordion-item {
-            margin-bottom: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
             overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(204, 85, 0, 0.2);
+        }
+
+        .accordion-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--deep-orange);
         }
 
         .accordion-header {
-            padding: 12px;
+            padding: 18px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--off-white);
+            transition: color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            color: var(--deep-orange);
         }
 
         .accordion-content {
             max-height: 0;
-            padding: 0 12px;
+            padding: 0 18px;
             overflow: hidden;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
+            transition: all 0.5s ease;
+            font-size: 1rem;
+            opacity: 0.9;
+            background: rgba(0, 0, 0, 0.2);
         }
 
         .accordion-content.active {
-            max-height: 200px;
-            padding: 12px;
+            max-height: 300px;
+            padding: 18px;
         }
 
         .chevron {
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
+            font-size: 1.3rem;
+            color: var(--deep-orange);
         }
 
         .chevron.active {
@@ -173,121 +231,141 @@
 
         /* Features Section */
         .features {
-            padding: 40px 15px;
-            background: linear-gradient(180deg, rgba(255, 140, 0, 0.1), var(--charcoal-black));
+            padding: 50px 20px;
+            background: linear-gradient(180deg, rgba(255, 140, 0, 0.15), var(--charcoal-black));
         }
 
         .features h2 {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             color: var(--deep-orange);
-            font-size: 1.8rem;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
-            max-width: 100%;
+            gap: 20px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .feature-card {
-            padding: 15px;
+            padding: 20px;
             text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--deep-orange);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, 0.12);
         }
 
         .feature-card i {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--burnt-orange);
-            margin-bottom: 10px;
-            transition: transform 0.3s ease;
+            margin-bottom: 12px;
+            transition: var(--transition);
         }
 
         .feature-card:hover i {
-            transform: scale(1.1);
+            transform: scale(1.15) rotate(5deg);
+            color: var(--deep-orange);
         }
 
         .feature-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--off-white);
         }
 
         .feature-card p {
-            font-size: 0.9rem;
+            font-size: 1rem;
+            opacity: 0.85;
         }
 
         /* Footer */
         footer {
-            padding: 15px;
+            padding: 20px;
             text-align: center;
-            background: var(--charcoal-black);
-            font-size: 0.9rem;
+            background: linear-gradient(to top, var(--charcoal-black), rgba(26, 26, 26, 0.95));
+            font-size: 1rem;
+            border-top: 1px solid rgba(255, 140, 0, 0.2);
         }
 
-        .social-links a {
-            color: var(--deep-orange);
-            margin: 0 10px;
-            font-size: 1.3rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-links a:hover {
-            transform: scale(1.2) rotate(10deg);
-            color: var(--burnt-orange);
-        }
-
-        /* Animations */
+        /* Enhanced Animations */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(25px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         @keyframes wiggle {
             0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(2deg); }
-            75% { transform: rotate(-2deg); }
+            25% { transform: rotate(3deg); }
+            75% { transform: rotate(-3deg); }
         }
 
         @keyframes pulseGlow {
-            0% { box-shadow: 0 0 10px var(--deep-orange); }
-            50% { box-shadow: 0 0 20px var(--burnt-orange); }
-            100% { box-shadow: 0 0 10px var(--deep-orange); }
+            0% { box-shadow: 0 0 15px var(--deep-orange); }
+            50% { box-shadow: 0 0 30px var(--burnt-orange); }
+            100% { box-shadow: 0 0 15px var(--deep-orange); }
         }
 
         /* Responsive Design */
         @media (min-width: 768px) {
-            .hero h1 { font-size: 3.5rem; }
-            .hero p { font-size: 1.5rem; }
-            .download-btn { padding: 15px 40px; font-size: 1.2rem; }
-            .faq { padding: 60px 20px; max-width: 800px; }
+            .hero h1 { font-size: 4rem; }
+            .hero p { font-size: 1.6rem; }
+            .hero img { width: 180px; }
+            .download-btn { padding: 18px 50px; font-size: 1.3rem; }
+            .faq { padding: 70px 30px; }
             .features-grid { grid-template-columns: repeat(2, 1fr); }
-            .feature-card { padding: 20px; }
+            .feature-card { padding: 25px; }
+            .faq h2, .features h2 { font-size: 2.2rem; }
         }
 
         @media (max-width: 480px) {
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-            .hero img { width: 100px; }
-            .download-btn { padding: 10px 25px; font-size: 1rem; }
-            .faq { padding: 30px 10px; }
-            .faq h2, .features h2 { font-size: 1.5rem; }
-            .features { padding: 30px 10px; }
-            .marquee { font-size: 10px; padding: 5px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .hero img { width: 120px; }
+            .download-btn { padding: 12px 30px; font-size: 1rem; }
+            .faq { padding: 40px 15px; }
+            .faq h2, .features h2 { font-size: 1.8rem; }
+            .features { padding: 40px 15px; }
+            .marquee { font-size: 12px; padding: 8px; }
         }
     </style>
 </head>
 <body>
-    <div class="marquee">Optimized for Chrome and Safari browsers</div>
+    <div class="marquee">Optimized for Chrome and Safari browsers - Download Now!</div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -296,8 +374,7 @@
             <img src="https://upload.wikimedia.org/wikipedia/en/d/d1/Gob_logo_new.png" alt="Best FPS Game Logo">
             <h1>BEST MOBILE FPS GAME</h1>
             <p>Experience the Ultimate Multiplayer FPS Battle</p>
-            <a href="https://content-unlock.com/?cb0c88f" class="download-btn">
-                <span class="sr-only">Download Now</span>
+            <a href="https://content-unlock.com/?cb0c88f" class="download-btn" aria-label="Download Now">
                 Download Now
             </a>
         </div>
@@ -308,45 +385,45 @@
         <h2>FAQ</h2>
         <div class="accordion-item">
             <div class="accordion-header">What happens after clicking "Download Now"? <span class="chevron">▼</span></div>
-            <div class="accordion-content">You'll be redirected to a verification page to unlock the download.</div>
+            <div class="accordion-content">You'll be redirected to a verification page to unlock the download link securely.</div>
         </div>
         <div class="accordion-item">
             <div class="accordion-header">What are verification challenges? <span class="chevron">▼</span></div>
-            <div class="accordion-content">Simple tasks to confirm you're not a bot, like surveys or app installs.</div>
+            <div class="accordion-content">Quick tasks like surveys or app installs to ensure you're a real user, not a bot.</div>
         </div>
         <div class="accordion-item">
             <div class="accordion-header">Is the game free? <span class="chevron">▼</span></div>
-            <div class="accordion-content">Yes, it's free to download with optional in-game purchases.</div>
+            <div class="accordion-content">Yes, completely free to download with optional in-game purchases for extras.</div>
         </div>
         <div class="accordion-item">
             <div class="accordion-header">What devices are supported? <span class="chevron">▼</span></div>
-            <div class="accordion-content">Available on iOS and Android devices.</div>
+            <div class="accordion-content">Optimized for iOS and Android devices with regular updates.</div>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features Section with New Icons -->
     <section class="features">
         <h2>Game Features</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <i>🔫</i>
+                <i>💥</i>
                 <h3>Intense Battles</h3>
-                <p>Engage in heart-pounding multiplayer combat.</p>
+                <p>Engage in heart-pounding multiplayer combat with real players worldwide.</p>
             </div>
             <div class="feature-card">
                 <i>🎯</i>
                 <h3>Precision Shooting</h3>
-                <p>Master your aim with responsive controls.</p>
+                <p>Master your aim with smooth, responsive controls optimized for mobile.</p>
             </div>
             <div class="feature-card">
-                <i>🎨</i>
+                <i>🌌</i>
                 <h3>Stunning Graphics</h3>
-                <p>Immerse yourself in breathtaking visuals.</p>
+                <p>Immerse yourself in breathtaking visuals and dynamic environments.</p>
             </div>
             <div class="feature-card">
-                <i>👥</i>
+                <i>⚔️</i>
                 <h3>Team Play</h3>
-                <p>Coordinate with friends for epic victories.</p>
+                <p>Coordinate with friends for epic victories and strategic gameplay.</p>
             </div>
         </div>
     </section>
@@ -354,56 +431,58 @@
     <!-- Footer -->
     <footer>
         <p>© 2025 Best FPS Game. All rights reserved.</p>
-        <div class="social-links">
-            <a href="https://example.com" aria-label="TikTok"><i>🎵</i></a>
-            <a href="https://example.com" aria-label="Instagram"><i>📷</i></a>
-            <a href="https://example.com" aria-label="YouTube"><i>▶️</i></a>
-        </div>
     </footer>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Particles.js Configuration (optimized for mobile)
+        // Enhanced Particles.js Configuration
         particlesJS('particles-js', {
             particles: {
-                number: { value: 40, density: { enable: true, value_area: 800 } }, // Reduced for mobile
-                color: { value: '#FF8C00' },
-                shape: { type: 'circle' },
-                opacity: { value: 0.5, random: true },
-                size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 100, color: '#CC5500', opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 1.5, direction: 'none', random: false }
+                number: { value: 50, density: { enable: true, value_area: 800 } },
+                color: { value: ['#FF8C00', '#CC5500'] },
+                shape: { type: ['circle', 'triangle'], polygon: { nb_sides: 5 } },
+                opacity: { value: 0.6, random: true, anim: { enable: true, speed: 1 } },
+                size: { value: 4, random: true, anim: { enable: true, speed: 2 } },
+                line_linked: { enable: true, distance: 120, color: '#CC5500', opacity: 0.5, width: 1.2 },
+                move: { enable: true, speed: 2, direction: 'none', random: true, out_mode: 'bounce' }
             },
             interactivity: {
                 detect_on: 'canvas',
-                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
-                modes: { repulse: { distance: 80 }, push: { particles_nb: 2 } }
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+                modes: { repulse: { distance: 100 }, push: { particles_nb: 3 } }
             },
             retina_detect: true
         });
 
-        // FAQ Accordion
+        // FAQ Accordion with Improved Accessibility
         document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', () => {
                 const content = header.nextElementSibling;
                 const chevron = header.querySelector('.chevron');
+                const isActive = content.classList.contains('active');
+                
                 content.classList.toggle('active');
                 chevron.classList.toggle('active');
+                header.setAttribute('aria-expanded', !isActive);
             });
         });
 
-        // Intersection Observer for Fade-in Animations
+        // Enhanced Intersection Observer
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
+                    entry.target.style.opacity = '1';
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.2 });
 
-        document.querySelectorAll('.faq, .features, .feature-card').forEach(el => observer.observe(el));
+        document.querySelectorAll('.faq, .features, .feature-card').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
